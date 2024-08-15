@@ -10,7 +10,7 @@ import axios from 'axios';
 const Stack = createStackNavigator();
 
 let ws: WebSocket;
-let IP: string | URL = "ws://192.168.1.52";
+let IP: string | URL = "ws://192.168.1.16";
 
 
 
@@ -62,6 +62,12 @@ function connect(IP: string | URL) {
     Alert.alert("Connected")
   }
 }
+
+
+
+
+
+
 
 
 function Login({ navigation }: any) {
@@ -148,16 +154,13 @@ function Dashboard() {
   };
   useEffect(() => {
     _subscribe();
-
-    // Cette fonction sera appelée chaque fois que x, y ou z changent
-    if (x < -50) {
-      ws.send('r');
-    }
-    if (x > 50) {
-      ws.send('l');
-    }
-
-    // Assurez-vous de nettoyer l'abonnement lorsque le composant est démonté
+    // partie accelerometer
+    // if (x < -50) {
+    //   ws.send('r');
+    // }
+    // if (x > 50) {
+    //   ws.send('l');
+    // }
     return () => {
       subscription && subscription.remove();
     };
