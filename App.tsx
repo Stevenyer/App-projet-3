@@ -141,30 +141,30 @@ function Dashboard() {
 
 
 
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [{ x, y, z }, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
-  Accelerometer.setUpdateInterval(200);
-  const _subscribe = () => {
-    const newSubscription = Accelerometer.addListener(setData);
-    setSubscription(newSubscription);
-  };
-  useEffect(() => {
-    _subscribe();
-    // partie accelerometer
-    // if (x < -50) {
-    //   ws.send('r');
-    // }
-    // if (x > 50) {
-    //   ws.send('l');
-    // }
-    return () => {
-      subscription && subscription.remove();
-    };
-  }, [x, y, z]);
+  // const [subscription, setSubscription] = useState<Subscription | null>(null);
+  // const [{ x, y, z }, setData] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  // });
+  // Accelerometer.setUpdateInterval(200);
+  // const _subscribe = () => {
+  //   const newSubscription = Accelerometer.addListener(setData);
+  //   setSubscription(newSubscription);
+  // };
+  // useEffect(() => {
+  //   _subscribe();
+  // partie accelerometer
+  // if (x < -50) {
+  //   ws.send('r');
+  // }
+  // if (x > 50) {
+  //   ws.send('l');
+  // }
+  //   return () => {
+  //     subscription && subscription.remove();
+  //   };
+  // }, [x, y, z]);
 
 
   return (
@@ -172,8 +172,8 @@ function Dashboard() {
 
 
     <View style={styles.coorcontainer}>
-      <Text style={styles.textcoor}>x: {x.toFixed(2)}</Text>
-      <Text style={styles.textcoor}>y: {y.toFixed(2)}</Text>
+      {/* <Text style={styles.textcoor}>x: {x.toFixed(2)}</Text>
+      <Text style={styles.textcoor}>y: {y.toFixed(2)}</Text> */}
 
       <View style={styles.row}>
         <TouchableOpacity onPress={() => { ws.send('f'); }} style={styles.arrowButton}>
