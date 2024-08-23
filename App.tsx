@@ -214,7 +214,7 @@ function Logfile() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get('http://192.168.1.55:3000/data')
+    axios.get('http://localhost:3000/data')
       .then(response => {
         setData(response.data);
         setError(null); // Clear any previous errors
